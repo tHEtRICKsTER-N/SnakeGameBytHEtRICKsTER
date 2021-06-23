@@ -1,12 +1,5 @@
-/*Group Project
+/*SnakeGameBytHEtRICKstER
 
-Naimish - 20BCG1012
-Vyom Taygi - 20BCG1051
-Rishav Raj - 20BCG1044
-
-Snake Game Project*/
-
-/*
 Use W to go UP 
     S to go Down
     A to go left
@@ -87,7 +80,6 @@ int numLength(int a)
 
 void startGame()
 {
-    //intro
     for (int i = 1; i <= screenWidth; i++)
     {
         cout << "#";
@@ -122,7 +114,6 @@ void startGame()
     sleep(2);
     system("CLS");
 
-    //instructions
     for (int i = 1; i <= screenWidth; i++)
     {
         cout << "#";
@@ -314,7 +305,7 @@ void gameLogic()
         break;
     }
 
-    if (snakeX > screenWidth || snakeX < 0 || snakeY > screenHeight || snakeY < 0)
+    if (snakeX >= screenWidth || snakeX <= 0 || snakeY >= screenHeight || snakeY <= 0)
         gameOver = true;
     //if snake touches the walls , game ends
 
