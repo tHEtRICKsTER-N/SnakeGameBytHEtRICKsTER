@@ -11,14 +11,14 @@ Enjoy !!!
 
 
 SOME FUNCTIONS USED :-
-rand() - it retrns a andom number , andif we modulo divide it with any number it will return a random value
+srand() - it retrns a andom number , andif we modulo divide it with any number it will return a random value
          less than the the divisor. eg - rand()%20 will return random number less than 20
 
 system("CLS") - clears the screen - stdlib.h
 
 _kbhit() - returns true value if a key is pressed - conio.h
 _getch() - pauses the screen until a key is pressed and stores it's ASCII value - conio.h
-sleep()  - it holds the program for seconds provided as arguments - unistd.h
+Sleep()  - it holds the program for miliseconds provided as arguments - windows.h
 str.length() - returns the number of characters in str string - string.h
 
 AXES :-
@@ -41,12 +41,13 @@ X` - - - - - + - - - - - X
 #include <iostream>
 #include <conio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <windows.h>
 #include <string.h>
+#include <time.h>
 using namespace std;
 
 //Game Variables:-
+
 bool gameOver;
 const int screenHeight = 25;
 const int screenWidth = 50;
@@ -111,7 +112,7 @@ void startGame()
     cout << endl;
 
 
-    sleep(2);
+    Sleep(2000);
     system("CLS");
 
     for (int i = 1; i <= screenWidth; i++)
@@ -144,7 +145,7 @@ void startGame()
     }
     cout << endl;
 
-    sleep(5);
+    Sleep(5000);
 }
 
 void endGame()
@@ -317,6 +318,7 @@ void gameLogic()
 
     if (snakeX == fruitX && snakeY == fruitY) //if snake touches the fruit , socre increments by 1
     {
+        srand(time(0));
         score += 1;
         fruitX = (rand() % screenWidth) + 1;
         fruitY = (rand() % screenHeight) + 1;
